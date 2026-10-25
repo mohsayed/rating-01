@@ -1,8 +1,8 @@
-import { useState } from 'react';
-import Star from './Star';
-import Modal from './Model';
+import { useState } from "react";
+import Star from "./Star";
+import Modal from "./Model";
 
-const Rating = ({ heading = 'Rate Your Experiance', color = 'gold' }) => {
+const Rating = ({ heading = "Rate Your Experiance", color = "gold" }) => {
   // state
   const [rating, setRating] = useState(0);
   const [hover, setHover] = useState(0);
@@ -10,7 +10,7 @@ const Rating = ({ heading = 'Rate Your Experiance', color = 'gold' }) => {
 
   // prepare array of items 1 to 5
   const stars = Array.from({ length: 5 }, (_, i) => i + 1);
-  const feedbackMessages = ['Terrible', 'Poor', 'Fair', 'Good', 'Excellent'];
+  const feedbackMessages = ["Terrible", "Poor", "Fair", "Good", "Excellent"];
   const currentFeedback = feedbackMessages[rating - 1];
 
   // building items array
@@ -55,19 +55,21 @@ const Rating = ({ heading = 'Rate Your Experiance', color = 'gold' }) => {
   // ));
 
   return (
-    <div className='rating-container'>
+    <div className="rating-container">
       <h2>{heading}</h2>
-      <div className='stars'>{ratingList}</div>
+      <div className="stars">{ratingList}</div>
       <p>Rating is : {rating} </p>
       <p>Hover: {hover}</p>
 
       {/* Rating */}
       {/* { rating > 0 && <p className="feedback">{currentFeedback}</p>} */}
-      {rating > 0 && <p className='feedback'>{feedbackMessages[rating - 1]}</p>}
+      {rating > 0 && <p className="feedback">{feedbackMessages[rating - 1]}</p>}
+
+      <p>coko wawa {`is ${submitted}`} </p>
 
       {/* Submit Button */}
       <button
-        className='submit-btn'
+        className="submit-btn"
         onClick={handleSubmit}
         disabled={rating === 0}
       >
@@ -75,6 +77,7 @@ const Rating = ({ heading = 'Rate Your Experiance', color = 'gold' }) => {
       </button>
 
       {/* Modal */}
+
       <Modal isOpen={submitted} onClose={closeModal} rating={rating} />
     </div>
   );
